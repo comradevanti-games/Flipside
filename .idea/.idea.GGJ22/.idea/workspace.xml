@@ -20,19 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22afade0-6f53-4d83-ac74-d0c4cb1c70f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ22/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ22/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ22/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ22/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BasePlayerBehaviour.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BasePlayerBehaviour.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BaseSideAbilities.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BaseSideAbilities.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CoinSide.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CoinSide.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FaceSideAbilities.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FaceSideAbilities.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TailSideAbilities.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TailSideAbilities.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/BaseEnemyBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/BaseEnemyBehaviour.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +53,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Runtime/Player/FaceSideAbilities.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Runtime/Player/TailSideAbilities.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Runtime/Player/CoinSide.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Runtime/BaseEnemyBehaviour.cs" />
       </list>
     </option>
   </component>
