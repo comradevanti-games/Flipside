@@ -16,6 +16,12 @@ namespace Foxy.Flipside
         private void Awake() =>
             GenerateInitial();
 
+        public void OnSegmentEndReached()
+        {
+            GenerateNext();
+        }
+        
+
         private void GenerateInitial()
         {
             for (var i = 0; i < 2; i++) GenerateNext();
