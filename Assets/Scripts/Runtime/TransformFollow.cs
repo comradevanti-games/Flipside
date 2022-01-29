@@ -9,7 +9,8 @@ namespace Foxy.Flipside
         [SerializeField] private Transform targetTransform;
         [SerializeField] [Range(0, 1)] private float smoothness;
         [SerializeField] private float speed;
-        [SerializeField] private Vector3 offset;
+
+        private Vector3 offset;
 
 
         private Vector3 Position
@@ -20,6 +21,9 @@ namespace Foxy.Flipside
 
         private Vector3 TargetPosition => targetTransform.position;
 
+
+        private void Awake() => 
+            offset = Position - TargetPosition;
 
         private void LateUpdate() =>
             Move();
