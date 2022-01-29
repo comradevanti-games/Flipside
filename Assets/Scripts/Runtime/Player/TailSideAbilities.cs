@@ -6,6 +6,9 @@ namespace Foxy.Flipside
 {
     public class TailSideAbilities : BaseSideAbilities
     {
+
+        [SerializeField] private BaseTailBehaviour tailBehaviour;
+        
         // Start is called before the first frame update
         void Start()
         {
@@ -24,6 +27,7 @@ namespace Foxy.Flipside
         {
             // todo: Attack with tail
             Debug.Log("Tail: Side Up Slap!");
+            tailBehaviour.Slap();
         }
 
         void SideDownSlap()

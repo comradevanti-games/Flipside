@@ -14,7 +14,7 @@ namespace Foxy.Flipside
         private Rigidbody enemyRb;
         private Transform playerTransform;
         
-        public EnemyState currentState = EnemyState.SEARCHING;
+        private EnemyState currentState = EnemyState.SEARCHING;
         
         // Start is called before the first frame update
         void Start()
@@ -59,8 +59,7 @@ namespace Foxy.Flipside
                 case EnemyState.ATTACKING:
                     target = playerTransform.position;
                     break;
-                default:
-                    currentState = EnemyState.SEARCHING;
+                case EnemyState.IDLE:
                     break;
             }
             
@@ -79,9 +78,16 @@ namespace Foxy.Flipside
 
         private void OnCollisionEnter(Collision other)
         {
+            Debug.Log(other.collider.tag);
             if (other.collider.CompareTag("Player"))
             {
                 Debug.Log("Player dies");
+                currentState = EnemyState.IDLE;
+            }
+            else if (!other.collider.CompareTag("Floor"))
+            {
+                Destroy(gameObject, 0.5f);
+                currentState = EnemyState.IDLE;
             }
         }
 
@@ -94,6 +100,7 @@ namespace Foxy.Flipside
 
         public enum EnemyState
         {
+            IDLE,
             SEARCHING,
             TARGETING,
             ATTACKING
