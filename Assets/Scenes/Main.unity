@@ -275,6 +275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   segmentGenerators:
   - {fileID: 11400000, guid: a3e7623e3505dc04eb4fb9c17d1d0e28, type: 2}
+  - {fileID: 11400000, guid: 7218e69d6fcde124eb81dd33a6b74213, type: 2}
+  - {fileID: 11400000, guid: b19b17b44930f304c8c781acac96a3ce, type: 2}
 --- !u!114 &543237884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +405,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5582798796929536082, guid: 071c3853b846b15448050a475b6766d1, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 5582798796929536086, guid: 071c3853b846b15448050a475b6766d1, type: 3}
       propertyPath: m_RootOrder
       value: 3
