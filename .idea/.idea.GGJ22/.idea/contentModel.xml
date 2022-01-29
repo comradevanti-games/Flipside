@@ -7,10 +7,22 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
+          <e p="BasePlayerBehaviour.cs" t="Include" />
           <e p="CoinSide.cs" t="Include" />
-          <e p="PlayerMovement.cs" t="Include" />
+          <e p="Runtime" t="Include">
+            <e p="ArrayExt.cs" t="Include" />
+            <e p="Course" t="Include">
+              <e p="CourseGen.cs" t="Include" />
+              <e p="CourseSegment.cs" t="Include" />
+              <e p="CourseTile.cs" t="Include" />
+              <e p="Rng.cs" t="Include" />
+              <e p="SegmentGen.cs" t="Include" />
+            </e>
+            <e p="Foxy.Flipside.Runtime.asmdef" t="Include" />
+          </e>
         </e>
       </e>
+      <e p="Foxy.Flipside.Runtime.csproj" t="IncludeRecursive" />
       <e p="GGJ22.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
