@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17ea1a1462edd5241a54de78fdf5d6c4, type: 3}
-  m_Name: LargeU
+  m_Script: {fileID: 11500000, guid: 80708a26df40b6d4e935485718d4b0d5, type: 3}
+  m_Name: Noise
   m_EditorClassIdentifier: 
   minDistance: 10
   maxDistance: 0
-  minHeight: 5
-  maxHeight: 7
-  minWidth: 3
-  maxWidth: 4
+  minDist: 1
+  maxDist: 3

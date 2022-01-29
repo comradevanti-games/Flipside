@@ -10,10 +10,13 @@ namespace Foxy.Flipside
 
         [SerializeField] private SegmentGen[] segmentGenerators;
 
-        
+
         private SegmentGen GetRandomSegmentGenerator(int distance, Rng rng)
         {
-            var possibleGenerators = segmentGenerators.Where(it => distance >= it.MinDistance).ToArray();
+            var possibleGenerators =
+                segmentGenerators
+                    .Where(it => distance >= it.MinDistance && (it.MaxDistance == 0 || distance <= it.MaxDistance))
+                    .ToArray();
             return possibleGenerators.RandomItem(rng);
         }
 
