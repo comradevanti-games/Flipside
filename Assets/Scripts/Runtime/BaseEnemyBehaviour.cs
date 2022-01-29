@@ -63,6 +63,7 @@ namespace Foxy.Flipside
                     break;
             }
             
+            transform.LookAt(target);
             direction = (target - transform.position).normalized;
             enemyRb.AddForce(direction * velocity, ForceMode.Acceleration);
         }

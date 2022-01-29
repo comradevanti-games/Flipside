@@ -27,7 +27,7 @@ namespace Foxy.Flipside
         {
             // todo: Attack with tail
             Debug.Log("Tail: Side Up Slap!");
-            tailBehaviour.Slap();
+            if (tailBehaviour) tailBehaviour.Slap();
         }
 
         void SideDownSlap()

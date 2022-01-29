@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Foxy.Flipside
 {
@@ -16,6 +17,8 @@ namespace Foxy.Flipside
         private BaseSideAbilities faceSideAbilities, tailSideAbilities;
 
         private CoinSide side;
+
+        public Side CurrentSide => side.Side;
 
         private Rigidbody playerRB;
         private Camera camera;
@@ -38,7 +41,7 @@ namespace Foxy.Flipside
         // Update is called once per frame
         void Update()
         {
-            Vector3 mousePos = Input.mousePosition;
+            /**Vector3 mousePos = Input.mousePosition;
             Ray ray = camera.ScreenPointToRay(mousePos);
             RaycastHit hit;
 
@@ -46,12 +49,12 @@ namespace Foxy.Flipside
             {
                 Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, hit.point.z);
                 //transform.LookAt(lookAt);
-
-                if (Input.GetMouseButtonUp(0) && grounded)
-                {
-                    Jump(hit.point);
-                }
+            */
+            if (Input.GetMouseButtonUp(0) && grounded)
+            {
+                Jump(MouseHelper.Instance.TryGetMousePosition());
             }
+            //}
 
             if (Input.GetMouseButtonUp(1))
             {
@@ -65,20 +68,23 @@ namespace Foxy.Flipside
                 if (!tailSideAbilities.abilityActive)
                     tailSideAbilities.FireAbility(side.Side == Side.HEAD, KeyCode.Mouse0);
             }
+
+            if (transform.position.y < -10)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
 
         void Flip()
         {
-            if (grounded)
+            if (!grounded) return;
+            Vector3 mousePos = Input.mousePosition;
+            Ray ray = camera.ScreenPointToRay(mousePos);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                Vector3 mousePos = Input.mousePosition;
-                Ray ray = camera.ScreenPointToRay(mousePos);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-                {
-                    Jump(hit.point);
-                    StartCoroutine(FlipAnimation());
-                }
+                Jump(new Vector3(hit.point.x, hit.point.y + 3, hit.point.z));
+                StartCoroutine(FlipAnimation());
             }
 
             side = side.Side == Side.HEAD ? tails : heads;
