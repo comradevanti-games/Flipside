@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a96c651b28e2ba429ec6211e21635a8, type: 3}
   m_Name: Face
   m_EditorClassIdentifier: 
-  velocity: 50
-  jumpForce: 100
+  velocity: 75
+  jumpForce: 150
   side: 0

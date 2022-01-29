@@ -7,6 +7,8 @@ public class BasePlayerBehaviour : MonoBehaviour
 {
 
     [SerializeField] private CoinSide heads, tails;
+
+    private BaseSideAbilities faceSideAbilities, tailSideAbilities;
     
     private CoinSide side;
 
@@ -20,6 +22,9 @@ public class BasePlayerBehaviour : MonoBehaviour
         if (side == null) side = heads;
         playerRB = GetComponent<Rigidbody>();
         camera = Camera.main;
+
+        faceSideAbilities = GetComponent<FaceSideAbilities>();
+        tailSideAbilities = GetComponent<TailSideAbilities>();
     }
 
     // Update is called once per frame
@@ -28,6 +33,7 @@ public class BasePlayerBehaviour : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         Ray ray = camera.ScreenPointToRay(mousePos);
         RaycastHit hit;
+
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
             Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, hit.point.z);
@@ -42,6 +48,12 @@ public class BasePlayerBehaviour : MonoBehaviour
         if (Input.GetMouseButtonUp(1))
         {
             Flip();
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if (!faceSideAbilities.abilityActive) faceSideAbilities.FireAbility(side.Side == Side.TAIL, KeyCode.Mouse0);
+            if (!tailSideAbilities.abilityActive) tailSideAbilities.FireAbility(side.Side == Side.HEAD, KeyCode.Mouse0);
         }
     }
 
@@ -83,4 +95,6 @@ public class BasePlayerBehaviour : MonoBehaviour
     {
         grounded = false;
     }
+
+    public Rigidbody PlayerRb => playerRB;
 }

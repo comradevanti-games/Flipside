@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 5582798796929536082}
   - component: {fileID: 5582798796929536083}
   - component: {fileID: 5899271390257328669}
+  - component: {fileID: 346515848}
+  - component: {fileID: 346515849}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -143,3 +145,31 @@ MonoBehaviour:
   onMilestoneReached:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &346515848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5582798796929536092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae447060fadd564f88f4091342e1507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityActive: 0
+--- !u!114 &346515849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5582798796929536092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 570d2850b354a0f439cb827936c9c0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityActive: 0
+  gravityScale: 0.15
+  gravity: -9.81
