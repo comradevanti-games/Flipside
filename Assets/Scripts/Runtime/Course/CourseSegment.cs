@@ -7,6 +7,8 @@ namespace Foxy.Flipside
     public struct CourseSegment
     {
 
+        public const int Length = 10;
+        
         public CourseTile[] Tiles { get; }
 
         public Vector2Int StartPos => Tiles.First().Position;
