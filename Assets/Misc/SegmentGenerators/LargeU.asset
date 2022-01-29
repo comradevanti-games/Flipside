@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: LargeU
   m_EditorClassIdentifier: 
   minDistance: 10
-  radius: 4
+  minHeight: 5
+  maxHeight: 7
+  minWidth: 3
+  maxWidth: 5
