@@ -10,6 +10,7 @@ namespace Foxy.Flipside
 
         [SerializeField] [Range(0.0f, 1.0f)] private float gravityScale = 0.1f;
         [SerializeField] private float gravity = -9.81f;
+        [SerializeField] private ParticleSystem vfx;
 
         private Vector3 applyGravity;
 
@@ -34,6 +35,7 @@ namespace Foxy.Flipside
             {
                 playerBehaviour.PlayerRb.useGravity = true;
                 abilityActive = false;
+                vfx.Stop();
             }
         }
 
@@ -48,6 +50,7 @@ namespace Foxy.Flipside
         {
             // todo: Hover logic
             Debug.Log("HOVER");
+            vfx.Play();
             playerBehaviour.PlayerRb.useGravity = false;
             abilityActive = true;
         }

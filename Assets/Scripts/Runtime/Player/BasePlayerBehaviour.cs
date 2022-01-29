@@ -9,6 +9,9 @@ namespace Foxy.Flipside
         public static BasePlayerBehaviour Instance;
 
         [SerializeField] private CoinSide heads, tails;
+        [SerializeField] private float flipDuration = 0.5f;
+        [SerializeField] private Quaternion downSideTransform;
+        private Quaternion upSideTransform;
 
         private BaseSideAbilities faceSideAbilities, tailSideAbilities;
 
@@ -17,12 +20,14 @@ namespace Foxy.Flipside
         private Rigidbody playerRB;
         private Camera camera;
         private bool grounded = true;
+        private bool flipped = false;
 
         // Start is called before the first frame update
         void Start()
         {
+            upSideTransform = this.transform.rotation;
             Instance = this;
-            if (side == null) side = heads;
+            if (side == null) side = tails;
             playerRB = GetComponent<Rigidbody>();
             camera = Camera.main;
 
@@ -72,6 +77,7 @@ namespace Foxy.Flipside
                 if (Physics.Raycast(ray, out hit, Mathf.Infinity))
                 {
                     Jump(hit.point);
+                    StartCoroutine(FlipAnimation());
                 }
             }
 
@@ -99,6 +105,27 @@ namespace Foxy.Flipside
         private void OnCollisionExit(Collision other)
         {
             grounded = false;
+        }
+
+        IEnumerator FlipAnimation()
+        {
+            float step = 0f;
+
+            Quaternion target = downSideTransform;
+            if (flipped)
+            {
+                target = upSideTransform;
+            }
+            
+            while (step < flipDuration)
+            {
+                step += Time.deltaTime;
+                transform.rotation = Quaternion.Lerp(transform.rotation, target, step / flipDuration);
+                yield return null;
+            }
+
+            flipped = !flipped;
+            yield return null;
         }
 
         public Rigidbody PlayerRb => playerRB;
