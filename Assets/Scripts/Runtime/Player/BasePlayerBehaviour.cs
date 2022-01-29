@@ -6,6 +6,7 @@ namespace Foxy.Flipside
 {
     public class BasePlayerBehaviour : MonoBehaviour
     {
+        public static BasePlayerBehaviour Instance;
 
         [SerializeField] private CoinSide heads, tails;
 
@@ -20,6 +21,7 @@ namespace Foxy.Flipside
         // Start is called before the first frame update
         void Start()
         {
+            Instance = this;
             if (side == null) side = heads;
             playerRB = GetComponent<Rigidbody>();
             camera = Camera.main;
