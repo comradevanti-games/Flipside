@@ -4,20 +4,17 @@
     <e p="C:\Users\Kipoka\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Kipoka\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_GGJ22.-437301766.00" t="ExcludeRecursive" />
     <e p="D:\GGJ22\GGJ22" t="IncludeRecursive">
-      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
-          <e p="BasePlayerBehaviour.cs" t="Include" />
-          <e p="BaseSideAbilities.cs" t="Include" />
-          <e p="CoinSide.cs" t="Include" />
-          <e p="FaceSideAbilities.cs" t="Include" />
           <e p="Runtime" t="Include">
             <e p="ArrayExt.cs" t="Include" />
+            <e p="BaseEnemyBehaviour.cs" t="Include" />
             <e p="Course" t="Include">
               <e p="CourseGen.cs" t="Include" />
               <e p="CourseManager.cs" t="Include" />
               <e p="CourseSegment.cs" t="Include" />
               <e p="CourseTile.cs" t="Include" />
+              <e p="ObjectPopper.cs" t="Include" />
               <e p="Rng.cs" t="Include" />
               <e p="SegmentBuilder.cs" t="Include" />
               <e p="SegmentGen.cs" t="Include" />
@@ -26,12 +23,17 @@
               </e>
             </e>
             <e p="Foxy.Flipside.Runtime.asmdef" t="Include" />
+            <e p="HeightKill.cs" t="Include" />
             <e p="Player" t="Include">
+              <e p="BasePlayerBehaviour.cs" t="Include" />
+              <e p="BaseSideAbilities.cs" t="Include" />
+              <e p="CoinSide.cs" t="Include" />
               <e p="DistanceTracker.cs" t="Include" />
+              <e p="FaceSideAbilities.cs" t="Include" />
+              <e p="TailSideAbilities.cs" t="Include" />
             </e>
             <e p="TransformFollow.cs" t="Include" />
           </e>
-          <e p="TailSideAbilities.cs" t="Include" />
         </e>
       </e>
       <e p="Foxy.Flipside.Runtime.csproj" t="IncludeRecursive" />
