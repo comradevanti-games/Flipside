@@ -10,6 +10,8 @@ namespace Foxy.Flipside
         [SerializeField] private float courseHeight;
         [SerializeField] private GameObject tilePrefab;
 
+        private int tileIndex = 0;
+
         public void Build(CourseSegment segment)
         {
             foreach (var tile in segment.Tiles) BuildTile(tile);
@@ -18,7 +20,11 @@ namespace Foxy.Flipside
         private void BuildTile(CourseTile tile)
         {
             var pos = new Vector3(tile.Position.x, courseHeight, tile.Position.y);
-            Instantiate(tilePrefab, pos, Quaternion.identity, mapParent);
+            var tileGo = Instantiate(tilePrefab, pos, Quaternion.identity, mapParent);
+            
+            tileGo.GetComponent<ObjectPopper>().Init(tileIndex);
+
+            tileIndex++;
         }
 
     }
