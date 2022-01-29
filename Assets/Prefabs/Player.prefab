@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5582798796929536082}
   - component: {fileID: 5582798796929536083}
   m_Layer: 0
-  m_Name: Coin_FaceUp
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
