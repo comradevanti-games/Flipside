@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Straight
   m_EditorClassIdentifier: 
   minDistance: 0
-  maxDistance: 1
+  maxDistance: 10

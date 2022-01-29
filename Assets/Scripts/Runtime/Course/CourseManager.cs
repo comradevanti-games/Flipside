@@ -24,7 +24,7 @@ namespace Foxy.Flipside
 
         private void GenerateInitial()
         {
-            for (var i = 0; i < 2; i++) GenerateNext();
+            for (var i = 0; i < 3; i++) GenerateNext();
         }
 
         private void GenerateNext()

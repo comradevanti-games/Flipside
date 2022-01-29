@@ -7,7 +7,7 @@ namespace Foxy.Flipside
     public struct CourseSegment
     {
 
-        public const int Length = 10;
+        public const int Length = 5;
         
         public CourseTile[] Tiles { get; }
 
