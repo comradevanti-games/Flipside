@@ -8,12 +8,13 @@ namespace Foxy.Flipside
     {
 
         [SerializeField] private float timeUntilPop;
+        [SerializeField] private float timeUntilFirstPop;
         [SerializeField] private new Collider collider;
         [SerializeField] private new Rigidbody rigidbody;
 
 
         public void Init(int tileIndex) =>
-            StartCoroutine(WaitAndPop((tileIndex + 1) * timeUntilPop));
+            StartCoroutine(WaitAndPop(tileIndex * timeUntilPop + timeUntilFirstPop));
 
         private IEnumerator WaitAndPop(float popTime)
         {
