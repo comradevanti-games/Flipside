@@ -127,7 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeUntilPop: 0.75
-  timeUntilFirstPop: 2
+  timeUntilFirstPop: 3
+  timeMultPerTile: 0.995
   collider: {fileID: 3246109268587364216}
   rigidbody: {fileID: 340690486085451549}
 --- !u!114 &2158862172179998517

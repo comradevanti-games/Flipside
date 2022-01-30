@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SmallU
   m_EditorClassIdentifier: 
   minDistance: 10
-  maxDistance: 0
+  maxDistance: 50
   minHeight: 1
   maxHeight: 3
   minWidth: 3

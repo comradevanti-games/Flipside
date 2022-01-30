@@ -30,7 +30,7 @@ namespace Foxy.Flipside
         private void GenerateNext()
         {
             var next = courseGen.GenerateNext(prevSegment, rng);
-            segmentBuilder.Build(next);
+            segmentBuilder.Build(next, rng);
             prevSegment = next;
         }
 

@@ -258,6 +258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673cba83c8c94bd3bb851720334b7cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstPopOffset: 3
+  basePopTime: 0.5
   mapParent: {fileID: 543237885}
   courseHeight: 0
   tilePrefab: {fileID: 8019173624355052685, guid: 6121a217e084f2a49beb8a8c0eaaf15f, type: 3}
