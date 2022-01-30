@@ -1,10 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Foxy.Flipside
 {
+
     public class FaceSideAbilities : BaseSideAbilities
     {
 
@@ -17,22 +15,13 @@ namespace Foxy.Flipside
         private bool blowing;
 
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
-            base.Init();
+            Init();
             sideUpAbilities.Add(KeyCode.F, SideUpBlow);
             sideDownAbilities.Add(KeyCode.Space, SideDownBlow);
             applyGravity = gravity * gravityScale * Vector3.up;
             vfxRotation = vfx.transform.rotation;
-        }
-
-        void SideUpBlow()
-        {
-            // todo: block enemies
-            Debug.Log("Face: Block Enemy");
-            blowing = true;
-            abilityActive = true;
-            vfx.Play();
         }
 
         private void Update()
@@ -54,10 +43,12 @@ namespace Foxy.Flipside
 
             if (blowing)
             {
-                Vector3 posToBlow = MouseHelper.Instance.TryGetMousePosition();
+                var posToBlow = MouseHelper.Instance.TryGetMousePosition();
                 if (posToBlow.Equals(Vector3.negativeInfinity)) return;
-                //posToBlow.y = Mathf.Max(posToBlow.y, vfx.transform.position.y);
-                vfx.transform.LookAt(posToBlow);
+
+                var dir = (posToBlow - vfx.transform.position).normalized.Flat().Lift45();
+
+                vfx.transform.up = -dir;
             }
         }
 
@@ -70,16 +61,25 @@ namespace Foxy.Flipside
             playerBehaviour.PlayerRb.AddForce(applyGravity, ForceMode.Acceleration);
         }
 
-        void SideDownBlow()
-        {
-            vfx.Play();
-            abilityActive = true;
-        }
-
         private void OnCollisionEnter(Collision other)
         {
             playerBehaviour.PlayerRb.useGravity = true;
             abilityActive = false;
+        }
+
+        private void SideUpBlow()
+        {
+            // todo: block enemies
+            Debug.Log("Face: Block Enemy");
+            blowing = true;
+            abilityActive = true;
+            vfx.Play();
+        }
+
+        private void SideDownBlow()
+        {
+            vfx.Play();
+            abilityActive = true;
         }
 
         public override void CancelAllAbilites()
@@ -90,5 +90,7 @@ namespace Foxy.Flipside
             blowing = false;
             vfx.Stop();
         }
+
     }
+
 }
