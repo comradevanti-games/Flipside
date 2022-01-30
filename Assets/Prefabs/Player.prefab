@@ -5208,4 +5208,4 @@ MonoBehaviour:
   tails: {fileID: 11400000, guid: 576073633e068d24885e49ec556a42ea, type: 2}
   flipDuration: 1.02
   downSideTransform: {x: 0, y: 0, z: 1, w: -0.00000004371139}
-  grounded: 1
+  grounded: 0
