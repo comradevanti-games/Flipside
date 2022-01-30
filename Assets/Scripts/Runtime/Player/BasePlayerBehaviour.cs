@@ -23,7 +23,7 @@ namespace Foxy.Flipside
         private Rigidbody playerRB;
         private Camera camera;
         public bool grounded = true;
-        private bool flipped = false, flipping = false;
+        private bool flipped = false;
 
         // Start is called before the first frame update
         void Start()
@@ -87,14 +87,16 @@ namespace Foxy.Flipside
 
         void Flip()
         {
-            if (flipping) return;
-            if (grounded)
+            if (!grounded) return;
+            Vector3 mousePos = Input.mousePosition;
+            Ray ray = camera.ScreenPointToRay(mousePos);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                Vector3 targetPos = MouseHelper.Instance.TryGetMousePosition();
-                if (targetPos.Equals(Vector3.negativeInfinity)) playerRB.AddForce(transform.up * (side.JumpForce + 2));
-                else Jump(targetPos);
+                Jump(new Vector3(hit.point.x, hit.point.y + 3, hit.point.z));
+                StartCoroutine(FlipAnimation());
             }
-            StartCoroutine(FlipAnimation());
+
             side = side.Side == Side.HEAD ? tails : heads;
         }
 
@@ -124,7 +126,6 @@ namespace Foxy.Flipside
 
         IEnumerator FlipAnimation()
         {
-            flipping = true;
             float step = 0f;
 
             Quaternion target = downSideTransform;
@@ -141,7 +142,6 @@ namespace Foxy.Flipside
             }
 
             flipped = !flipped;
-            flipping = false;
             yield return null;
         }
 

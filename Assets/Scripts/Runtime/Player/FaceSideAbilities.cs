@@ -52,27 +52,28 @@ namespace Foxy.Flipside
                 abilityActive = false;
             }
 
-            /*if (blowing)
+            if (blowing)
             {
                 Vector3 posToBlow = MouseHelper.Instance.TryGetMousePosition();
                 if (posToBlow.Equals(Vector3.negativeInfinity)) return;
                 posToBlow.y = Mathf.Max(posToBlow.y, vfx.transform.position.y);
                 vfx.transform.LookAt(posToBlow);
-            }*/
+            }
         }
 
         private void FixedUpdate()
         {
             if (!abilityActive || playerBehaviour.grounded) return;
-            if (playerBehaviour.PlayerRb.velocity.y > 0.0f) return;
-            if (playerBehaviour.CurrentSide == Side.HEAD && playerBehaviour.PlayerRb.useGravity) playerBehaviour.PlayerRb.useGravity = false;
-            
+
             playerBehaviour.PlayerRb.AddForce(applyGravity, ForceMode.Acceleration);
         }
 
         void SideDownBlow()
         {
+            // todo: Hover logic
+            Debug.Log("HOVER");
             vfx.Play();
+            playerBehaviour.PlayerRb.useGravity = false;
             abilityActive = true;
         }
 
