@@ -1573,8 +1573,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5582798796929536083, guid: 071c3853b846b15448050a475b6766d1, type: 3}
       propertyPath: dieScene
-      value: 
-      objectReference: {fileID: 102900000, guid: 721c63d7610894c4ebe02e4d40a4eb90, type: 3}
+      value: Gameover
+      objectReference: {fileID: 0}
     - target: {fileID: 5582798796929536086, guid: 071c3853b846b15448050a475b6766d1, type: 3}
       propertyPath: m_RootOrder
       value: 3

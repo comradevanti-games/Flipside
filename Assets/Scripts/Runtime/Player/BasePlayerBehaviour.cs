@@ -16,7 +16,7 @@ namespace Foxy.Flipside
         [SerializeField] private Collider tailCollider;
         [SerializeField] private SpriteRenderer tailUpRenderer, tailDownRenderer;
 
-        [SerializeField] private SceneAsset dieScene;
+        [SerializeField] private string dieScene;
         
         private Quaternion upSideTransform;
 
@@ -87,7 +87,7 @@ namespace Foxy.Flipside
 
             if (transform.position.y < -10)
             {
-                SceneManager.LoadScene(dieScene.name);
+                SceneManager.LoadScene(dieScene);
             }
         }
 
