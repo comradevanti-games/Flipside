@@ -87,6 +87,10 @@ namespace Foxy.Flipside
             }
             else if (!other.collider.CompareTag("Floor"))
             {
+                if (other.collider.CompareTag("Tail"))
+                {
+                    Destroy(gameObject);
+                }
                 Destroy(gameObject, 0.5f);
                 currentState = EnemyState.IDLE;
             }

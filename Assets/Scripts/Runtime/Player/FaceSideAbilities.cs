@@ -13,20 +13,26 @@ namespace Foxy.Flipside
         [SerializeField] private ParticleSystem vfx;
 
         private Vector3 applyGravity;
+        private Quaternion vfxRotation;
+        private bool blowing;
 
         // Start is called before the first frame update
         void Start()
         {
             base.Init();
-            sideUpAbilities.Add(KeyCode.B, SideUpBlow);
+            sideUpAbilities.Add(KeyCode.F, SideUpBlow);
             sideDownAbilities.Add(KeyCode.Space, SideDownBlow);
             applyGravity = gravity * gravityScale * Vector3.up;
+            vfxRotation = vfx.transform.rotation;
         }
 
         void SideUpBlow()
         {
             // todo: block enemies
             Debug.Log("Face: Block Enemy");
+            blowing = true;
+            abilityActive = true;
+            vfx.Play();
         }
 
         private void Update()
@@ -36,6 +42,22 @@ namespace Foxy.Flipside
                 playerBehaviour.PlayerRb.useGravity = true;
                 abilityActive = false;
                 vfx.Stop();
+            }
+
+            if (Input.GetKeyUp(KeyCode.F))
+            {
+                vfx.Stop();
+                vfx.transform.rotation = vfxRotation;
+                blowing = false;
+                abilityActive = false;
+            }
+
+            if (blowing)
+            {
+                Vector3 posToBlow = MouseHelper.Instance.TryGetMousePosition();
+                if (posToBlow.Equals(Vector3.negativeInfinity)) return;
+                posToBlow.y = Mathf.Max(posToBlow.y, vfx.transform.position.y);
+                vfx.transform.LookAt(posToBlow);
             }
         }
 

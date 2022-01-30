@@ -59,7 +59,7 @@ namespace Foxy.Flipside
         {
             previousRotation = transform.rotation;
             Vector3 lookAt = MouseHelper.Instance.TryGetMousePosition();
-            if (lookAt != Vector3.negativeInfinity) transform.LookAt(lookAt);
+            //if (!lookAt.Equals(Vector3.negativeInfinity)) transform.LookAt(lookAt);
             animator.SetTrigger("Attack");
             _abilities = abilities;
         }

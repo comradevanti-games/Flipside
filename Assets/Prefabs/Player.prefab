@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 212152437}
   - component: {fileID: 212152438}
   - component: {fileID: 212152440}
-  - component: {fileID: 212152439}
   - component: {fileID: 212152441}
+  - component: {fileID: 8527989323087808884}
   m_Layer: 0
   m_Name: Spritesheet_GGJ22_Tail_01
   m_TagString: Untagged
@@ -104,22 +104,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!58 &212152439
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 212152436}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.31441167, y: 2.1864233}
-  serializedVersion: 2
-  m_Radius: 1.3604175
 --- !u!114 &212152441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +116,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1610daae3b8ff664c96371f2d9b0cbfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &8527989323087808884
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212152436}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 2.4065707
+  m_Center: {x: 0.035653833, y: 3.226543, z: 0}
 --- !u!1 &1747048094
 GameObject:
   m_ObjectHideFlags: 0

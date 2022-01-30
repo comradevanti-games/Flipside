@@ -102,7 +102,7 @@ namespace Foxy.Flipside
 
         void Jump(Vector3 targetPoint)
         {
-            if (targetPoint == Vector3.negativeInfinity) return;
+            if (targetPoint.Equals(Vector3.negativeInfinity)) return;
             Vector3 direction = (targetPoint - transform.position).normalized;
             playerRB.AddForce(new Vector3(direction.x * side.Velocity, side.JumpForce,
                     direction.z * side.Velocity),
