@@ -6,6 +6,9 @@ namespace Foxy.Flipside
     public class MousePoint : MonoBehaviour
     {
 
+        public static MousePoint instance;
+
+
         [SerializeField] private float planeHeight;
         [SerializeField] private Camera cam;
 
@@ -26,6 +29,10 @@ namespace Foxy.Flipside
                 return null;
             }
         }
+
+
+        private void Awake() => 
+            instance = this;
 
     }
 
