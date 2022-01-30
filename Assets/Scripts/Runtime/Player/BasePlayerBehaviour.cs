@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,8 @@ namespace Foxy.Flipside
         [SerializeField] private Quaternion downSideTransform;
         [SerializeField] private Collider tailCollider;
         [SerializeField] private SpriteRenderer tailUpRenderer, tailDownRenderer;
+
+        [SerializeField] private SceneAsset dieScene;
         
         private Quaternion upSideTransform;
 
@@ -84,7 +87,7 @@ namespace Foxy.Flipside
 
             if (transform.position.y < -10)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                SceneManager.LoadScene(dieScene.name);
             }
         }
 
