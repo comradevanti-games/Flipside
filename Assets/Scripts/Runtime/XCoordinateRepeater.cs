@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Foxy.Flipside
 {
 
     public class XCoordinateRepeater : MonoBehaviour
     {
+
+        public UnityEvent onRepeat;
 
         [SerializeField] private float repeatX;
         [SerializeField] private float startX;
@@ -32,8 +35,11 @@ namespace Foxy.Flipside
                 Repeat();
         }
 
-        private void Repeat() =>
-            LocalX = startX;
+        private void Repeat()
+        {
+            LocalX = startX; 
+            onRepeat.Invoke();
+        }
 
     }
 
