@@ -97,6 +97,14 @@ namespace Foxy.Flipside
             }
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Tail"))
+            {
+                Destroy(gameObject);
+            }
+        }
+
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
