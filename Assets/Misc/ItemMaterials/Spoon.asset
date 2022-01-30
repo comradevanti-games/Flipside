@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973930b1e0933f142a8efb0c60c9726e, type: 3}
   m_Name: Spoon
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 324bd5a40f22b5446a69306588ca4461, type: 2}
+  material: {fileID: 2100000, guid: d7c08a57bbfc6a44a85efe9ac3d4d1d2, type: 2}
   size: {x: 4, y: 0.75}
