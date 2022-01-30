@@ -11,6 +11,10 @@ namespace Foxy.Flipside
         private Animator animator;
 
         private BasePlayerBehaviour playerBehaviour;
+
+        private BaseSideAbilities _abilities;
+
+        private Quaternion previousRotation;
         // Start is called before the first frame update
         void Start()
         {
@@ -23,7 +27,7 @@ namespace Foxy.Flipside
         {
             if (playerBehaviour == null) playerBehaviour = BasePlayerBehaviour.Instance;
             if (playerBehaviour != null && playerBehaviour.CurrentSide == Side.TAIL) return;
-            Vector3 mousePos = Input.mousePosition;
+           /** Vector3 mousePos = Input.mousePosition;
             Ray ray = Camera.main.ScreenPointToRay(mousePos);
             RaycastHit hit;
 
@@ -31,12 +35,34 @@ namespace Foxy.Flipside
             {
                 //Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, hit.point.z);
                 transform.LookAt(hit.point);
-            }
+            }*/
+        }
+        
+        public void ToggleAbilityActive()
+        {
+            if (_abilities) _abilities.abilityActive = !_abilities.abilityActive;
         }
 
-        public void Slap()
+        public void SetAbilityActiveTrue()
         {
-            animator.SetTrigger("Attack");
+            _abilities.abilityActive = true;
+            Invoke("SetAbilityActiveFalse", 1.2f);
         }
+
+        public void SetAbilityActiveFalse()
+        {
+            _abilities.abilityActive = false;
+            transform.rotation = previousRotation;
+        }
+
+        public void Slap(BaseSideAbilities abilities)
+        {
+            previousRotation = transform.rotation;
+            Vector3 lookAt = MouseHelper.Instance.TryGetMousePosition();
+            if (lookAt != Vector3.negativeInfinity) transform.LookAt(lookAt);
+            animator.SetTrigger("Attack");
+            _abilities = abilities;
+        }
+
     }
 }

@@ -8,8 +8,6 @@ namespace Foxy.Flipside
     {
 
         public static MouseHelper Instance;
-
-        private Plane templatePlane = new Plane(Vector3.zero, 3.0f);
         private Camera camera;
 
         // Start is called before the first frame update
@@ -30,15 +28,7 @@ namespace Foxy.Flipside
                 return hit.point;
             }
 
-            Plane translatedPlane =
-                Plane.Translate(templatePlane, camera.ScreenToWorldPoint(mousePos) - templatePlane.normal);
-            float dist;
-            if (translatedPlane.Raycast(ray, out dist))
-            {
-                return ray.GetPoint(dist);
-            }
-
-            return Vector3.zero;
+            return Vector3.negativeInfinity;
         }
     }
 }

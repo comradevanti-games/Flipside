@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Foxy.Flipside
@@ -10,6 +11,17 @@ namespace Foxy.Flipside
 
         protected Dictionary<KeyCode, SideDownAbility> sideDownAbilities = new Dictionary<KeyCode, SideDownAbility>();
         protected Dictionary<KeyCode, SideUpAbility> sideUpAbilities = new Dictionary<KeyCode, SideUpAbility>();
+
+        public List<KeyCode> PossibleKeyCodes
+        {
+            get
+            {
+                List<KeyCode> keyCodes = sideDownAbilities.Keys.ToList();
+                keyCodes.AddRange(sideUpAbilities.Keys.ToList());
+
+                return keyCodes;
+            }
+        }
 
         protected BasePlayerBehaviour playerBehaviour;
 

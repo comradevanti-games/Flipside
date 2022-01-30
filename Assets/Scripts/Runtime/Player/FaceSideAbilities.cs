@@ -18,8 +18,8 @@ namespace Foxy.Flipside
         void Start()
         {
             base.Init();
-            sideUpAbilities.Add(KeyCode.Mouse0, SideUpBlow);
-            sideDownAbilities.Add(KeyCode.Mouse0, SideDownBlow);
+            sideUpAbilities.Add(KeyCode.B, SideUpBlow);
+            sideDownAbilities.Add(KeyCode.Space, SideDownBlow);
             applyGravity = gravity * gravityScale * Vector3.up;
         }
 
@@ -41,7 +41,7 @@ namespace Foxy.Flipside
 
         private void FixedUpdate()
         {
-            if (!abilityActive) return;
+            if (!abilityActive || playerBehaviour.grounded) return;
 
             playerBehaviour.PlayerRb.AddForce(applyGravity, ForceMode.Acceleration);
         }

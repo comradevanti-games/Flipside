@@ -22,7 +22,7 @@ namespace Foxy.Flipside
 
         private Rigidbody playerRB;
         private Camera camera;
-        private bool grounded = true;
+        public bool grounded = true;
         private bool flipped = false;
 
         // Start is called before the first frame update
@@ -61,12 +61,22 @@ namespace Foxy.Flipside
                 Flip();
             }
 
-            if (Input.GetKey(KeyCode.Space))
+            foreach (KeyCode keyCode in faceSideAbilities.PossibleKeyCodes)
             {
-                if (!faceSideAbilities.abilityActive)
-                    faceSideAbilities.FireAbility(side.Side == Side.TAIL, KeyCode.Mouse0);
-                if (!tailSideAbilities.abilityActive)
-                    tailSideAbilities.FireAbility(side.Side == Side.HEAD, KeyCode.Mouse0);
+                if (Input.GetKey(keyCode))
+                {
+                    if (!faceSideAbilities.abilityActive)
+                        faceSideAbilities.FireAbility(side.Side == Side.TAIL, keyCode);
+                }
+            }
+
+            foreach (KeyCode possibleKeyCode in tailSideAbilities.PossibleKeyCodes)
+            {
+                if (Input.GetKey(possibleKeyCode))
+                {
+                    if (!tailSideAbilities.abilityActive)
+                        tailSideAbilities.FireAbility(side.Side == Side.HEAD, possibleKeyCode);
+                }
             }
 
             if (transform.position.y < -10)
@@ -92,6 +102,7 @@ namespace Foxy.Flipside
 
         void Jump(Vector3 targetPoint)
         {
+            if (targetPoint == Vector3.negativeInfinity) return;
             Vector3 direction = (targetPoint - transform.position).normalized;
             playerRB.AddForce(new Vector3(direction.x * side.Velocity, side.JumpForce,
                     direction.z * side.Velocity),
