@@ -127,7 +127,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 5.1605735
+  m_Radius: 3.5
   m_Center: {x: -0.031678442, y: 2.200409, z: 0}
 --- !u!1 &1747048094
 GameObject:
@@ -5310,7 +5310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heads: {fileID: 11400000, guid: 05d37137a668a78479e6d5732d92e28e, type: 2}
   tails: {fileID: 11400000, guid: 576073633e068d24885e49ec556a42ea, type: 2}
-  flipDuration: 1.02
+  flipDuration: 0.25
   downSideTransform: {x: 0, y: 0, z: 1, w: -0.00000004371139}
   tailCollider: {fileID: 5493817065843904409}
   tailUpRenderer: {fileID: 212152438}

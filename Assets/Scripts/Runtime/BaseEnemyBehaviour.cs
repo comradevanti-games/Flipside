@@ -93,6 +93,7 @@ namespace Foxy.Flipside
             {
                 Debug.Log("Player dies");
                 currentState = EnemyState.IDLE;
+                Destroy(gameObject, 1.5f);
             }
             else if (!other.collider.CompareTag("Floor"))
             {

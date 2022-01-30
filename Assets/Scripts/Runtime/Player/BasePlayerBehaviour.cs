@@ -97,8 +97,9 @@ namespace Foxy.Flipside
             if (grounded)
             {
                 Vector3 targetPos = MouseHelper.Instance.TryGetMousePosition();
-                if (targetPos.Equals(Vector3.negativeInfinity)) playerRB.AddForce(transform.up * 10);
-                else Jump(targetPos);
+                if (!targetPos.Equals(Vector3.negativeInfinity)) 
+                    Jump(targetPos);
+                transform.position += new Vector3(0.0f, 0.5f, 0.0f);
             }
             StartCoroutine(FlipAnimation());
             side = side.Side == Side.HEAD ? tails : heads;
@@ -118,17 +119,22 @@ namespace Foxy.Flipside
 
         private void OnCollisionEnter(Collision other)
         {
-            grounded = true;
+            if (other.collider.CompareTag("Floor"))
+                grounded = true;
+            if (other.collider.CompareTag("Enemy"))
+                playerRB.AddForce((other.transform.position - transform.position) * other.impulse.magnitude);
         }
 
         private void OnCollisionStay(Collision other)
         {
-            grounded = true;
+            if (other.collider.CompareTag("Floor"))
+                grounded = true;
         }
 
         private void OnCollisionExit(Collision other)
         {
-            grounded = false;
+            if (other.collider.CompareTag("Floor"))
+                grounded = false;
         }
 
         IEnumerator FlipAnimation()
