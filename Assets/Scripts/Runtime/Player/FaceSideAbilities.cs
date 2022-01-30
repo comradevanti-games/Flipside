@@ -9,6 +9,7 @@ namespace Foxy.Flipside
         [SerializeField] [Range(0.0f, 1.0f)] private float gravityScale = 0.1f;
         [SerializeField] private float gravity = -9.81f;
         [SerializeField] private ParticleSystem vfx;
+        [SerializeField] private MousePoint mousePoint;
 
         private Vector3 applyGravity;
         private Quaternion vfxRotation;
@@ -43,10 +44,10 @@ namespace Foxy.Flipside
 
             if (blowing)
             {
-                var posToBlow = MouseHelper.Instance.TryGetMousePosition();
-                if (posToBlow.Equals(Vector3.negativeInfinity)) return;
+                var posToBlow = mousePoint.OnPlane;
+                if (posToBlow == null) return;
 
-                var dir = (posToBlow - vfx.transform.position).normalized.Flat().Lift45();
+                var dir = (posToBlow.Value - vfx.transform.position).normalized.Flat().Lift45();
 
                 vfx.transform.up = -dir;
             }

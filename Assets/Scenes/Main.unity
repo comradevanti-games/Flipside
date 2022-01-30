@@ -615,6 +615,7 @@ GameObject:
   - component: {fileID: 668901050}
   - component: {fileID: 668901049}
   - component: {fileID: 668901048}
+  - component: {fileID: 668901053}
   m_Layer: 0
   m_Name: RaycastHelper
   m_TagString: Untagged
@@ -713,6 +714,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &668901053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668901047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98228d12254367a4ebecc8bdbc3d190e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planeHeight: 0
+  cam: {fileID: 213228384}
 --- !u!1001 &719721074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1524,6 +1539,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -8.165
       objectReference: {fileID: 0}
+    - target: {fileID: 346515849, guid: 071c3853b846b15448050a475b6766d1, type: 3}
+      propertyPath: mousePoint
+      value: 
+      objectReference: {fileID: 668901053}
     - target: {fileID: 5140364181890082323, guid: 071c3853b846b15448050a475b6766d1, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
