@@ -6,17 +6,20 @@ namespace Foxy.Flipside
     public class BackgroundFader : MonoBehaviour
     {
 
-        [SerializeField] private Material backgroundMaterial;
+        [SerializeField] private Renderer backgroundRenderer;
         [SerializeField] private float fadeSpeed;
+
+        private Material BackgroundMaterial =>
+            backgroundRenderer.material;
 
         private float[] HSV
         {
             get
             {
-                Color.RGBToHSV(backgroundMaterial.color, out var r, out var g, out var b);
+                Color.RGBToHSV(BackgroundMaterial.color, out var r, out var g, out var b);
                 return new[] { r, g, b };
             }
-            set => backgroundMaterial.color = Color.HSVToRGB(value[0], value[1], value[2]);
+            set => BackgroundMaterial.color = Color.HSVToRGB(value[0], value[1], value[2]);
         }
 
 
