@@ -55,7 +55,7 @@ namespace Foxy.Flipside
             */
             if (Input.GetMouseButtonUp(0) && grounded)
             {
-                Jump(MouseHelper.Instance.TryGetMousePosition());
+                Jump(MousePoint.instance.OnPlane);
             }
             //}
 
@@ -96,8 +96,8 @@ namespace Foxy.Flipside
             
             if (grounded)
             {
-                Vector3 targetPos = MouseHelper.Instance.TryGetMousePosition();
-                if (!targetPos.Equals(Vector3.negativeInfinity)) 
+                Vector3? targetPos = MousePoint.instance.OnPlane;
+                if (targetPos != null) 
                     Jump(targetPos);
                 transform.position += new Vector3(0.0f, 0.5f, 0.0f);
             }
@@ -108,13 +108,14 @@ namespace Foxy.Flipside
             tailUpRenderer.enabled = side.Side != Side.TAIL;
         }
 
-        void Jump(Vector3 targetPoint)
+        void Jump(Vector3? targetPoint)
         {
-            if (targetPoint.Equals(Vector3.negativeInfinity)) return;
-            Vector3 direction = (targetPoint - transform.position).normalized;
+            if (targetPoint == null) return;
+            Vector3 direction = (targetPoint - transform.position).Value.normalized;
             playerRB.AddForce(new Vector3(direction.x * side.Velocity, side.JumpForce,
                     direction.z * side.Velocity),
                 ForceMode.Force);
+            grounded = false;
         }
 
         private void OnCollisionEnter(Collision other)
