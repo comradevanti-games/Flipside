@@ -59,7 +59,6 @@ namespace Foxy.Flipside
         public void Slap(BaseSideAbilities abilities)
         {
             previousRotation = transform.rotation;
-            Vector3 lookAt = MouseHelper.Instance.TryGetMousePosition();
             // if (!lookAt.Equals(Vector3.negativeInfinity)) transform.LookAt(new Vector3(lookAt.x, transform.position.y, lookAt.z));
             animator.SetTrigger("Attack");
             _abilities = abilities;
