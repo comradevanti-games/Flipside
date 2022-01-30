@@ -51,5 +51,10 @@ namespace Foxy.Flipside
                 sideDownAbilities[buttonPressed]();
             }
         }
+
+        public virtual void CancelAllAbilites()
+        {
+            
+        }
     }
 }

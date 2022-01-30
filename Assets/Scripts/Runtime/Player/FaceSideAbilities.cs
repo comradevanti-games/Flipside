@@ -52,13 +52,14 @@ namespace Foxy.Flipside
                 abilityActive = false;
             }
 
-            /*if (blowing)
+            if (blowing)
             {
                 Vector3 posToBlow = MouseHelper.Instance.TryGetMousePosition();
                 if (posToBlow.Equals(Vector3.negativeInfinity)) return;
-                posToBlow.y = Mathf.Max(posToBlow.y, vfx.transform.position.y);
-                vfx.transform.LookAt(posToBlow);
-            }*/
+                //posToBlow.y = Mathf.Max(posToBlow.y, vfx.transform.position.y);
+                //vfx.transform.LookAt(posToBlow);
+                vfx.transform.LookAt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            }
         }
 
         private void FixedUpdate()
@@ -80,6 +81,15 @@ namespace Foxy.Flipside
         {
             playerBehaviour.PlayerRb.useGravity = true;
             abilityActive = false;
+        }
+
+        public override void CancelAllAbilites()
+        {
+            playerBehaviour.PlayerRb.useGravity = true;
+            abilityActive = false;
+            vfx.transform.rotation = vfxRotation;
+            blowing = false;
+            vfx.Stop();
         }
     }
 }
