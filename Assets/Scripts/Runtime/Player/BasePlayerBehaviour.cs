@@ -13,6 +13,7 @@ namespace Foxy.Flipside
         [SerializeField] private float flipDuration = 0.5f;
         [SerializeField] private Quaternion downSideTransform;
         [SerializeField] private Collider tailCollider;
+        [SerializeField] private SpriteRenderer tailUpRenderer, tailDownRenderer;
         
         private Quaternion upSideTransform;
 
@@ -102,6 +103,8 @@ namespace Foxy.Flipside
             StartCoroutine(FlipAnimation());
             side = side.Side == Side.HEAD ? tails : heads;
             tailCollider.enabled = side.Side != Side.HEAD;
+            tailDownRenderer.enabled = side.Side == Side.TAIL;
+            tailUpRenderer.enabled = side.Side != Side.TAIL;
         }
 
         void Jump(Vector3 targetPoint)
