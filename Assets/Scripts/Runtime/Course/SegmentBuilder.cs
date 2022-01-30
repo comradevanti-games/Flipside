@@ -12,10 +12,14 @@ namespace Foxy.Flipside
         [SerializeField] private float courseHeight;
         [SerializeField] private GameObject tilePrefab;
 
+        private float startTime;
         private float lastPopTime;
 
-        private void Awake() =>
+        private void Awake()
+        {
             lastPopTime = firstPopOffset;
+            startTime = Time.time;
+        }
 
         public void Build(CourseSegment segment, Rng rng)
         {
@@ -34,7 +38,7 @@ namespace Foxy.Flipside
         }
 
         private float CalculatePopTime(Rng rng) =>
-            lastPopTime + basePopTime * rng.InRange(0.5f, 1.5f) + rng.InRange(-0.5f, 0.5f);
+            lastPopTime + basePopTime * rng.InRange(0.5f, 1.5f) + rng.InRange(-0.5f, 0.5f) + startTime;
 
     }
 
