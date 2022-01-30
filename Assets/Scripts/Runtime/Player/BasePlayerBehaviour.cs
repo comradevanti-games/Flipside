@@ -90,6 +90,9 @@ namespace Foxy.Flipside
         void Flip()
         {
             if (flipping) return;
+            faceSideAbilities.CancelAllAbilites();
+            tailSideAbilities.CancelAllAbilites();
+            
             if (grounded)
             {
                 Vector3 targetPos = MouseHelper.Instance.TryGetMousePosition();
