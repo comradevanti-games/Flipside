@@ -10,6 +10,7 @@ namespace Foxy.Flipside
     {
         [SerializeField] private float velocity = 10f;
         [SerializeField] private float trackRadius = 1.0f;
+        [SerializeField] private float idleTime = 1.5f;
 
         private Rigidbody enemyRb;
         private Transform playerTransform;
@@ -19,7 +20,14 @@ namespace Foxy.Flipside
         // Start is called before the first frame update
         void Start()
         {
+            currentState = EnemyState.IDLE;
+            Invoke("StartBehaviour", idleTime);
             enemyRb = GetComponent<Rigidbody>();
+        }
+
+        void StartBehaviour()
+        {
+            currentState = EnemyState.SEARCHING;
         }
 
         // Update is called once per frame
@@ -99,10 +107,16 @@ namespace Foxy.Flipside
 
         private void OnTriggerEnter(Collider other)
         {
+            Debug.Log("I should die!");
             if (other.CompareTag("Tail"))
             {
                 Destroy(gameObject);
             }
+        }
+
+        private void OnBecameInvisible()
+        {
+            Destroy(gameObject);
         }
 
 #if UNITY_EDITOR

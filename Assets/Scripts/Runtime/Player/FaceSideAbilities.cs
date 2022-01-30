@@ -57,8 +57,7 @@ namespace Foxy.Flipside
                 Vector3 posToBlow = MouseHelper.Instance.TryGetMousePosition();
                 if (posToBlow.Equals(Vector3.negativeInfinity)) return;
                 //posToBlow.y = Mathf.Max(posToBlow.y, vfx.transform.position.y);
-                //vfx.transform.LookAt(posToBlow);
-                vfx.transform.LookAt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                vfx.transform.LookAt(posToBlow);
             }
         }
 
