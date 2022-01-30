@@ -12,6 +12,8 @@ namespace Foxy.Flipside
         [SerializeField] private CoinSide heads, tails;
         [SerializeField] private float flipDuration = 0.5f;
         [SerializeField] private Quaternion downSideTransform;
+        [SerializeField] private Collider tailCollider;
+        
         private Quaternion upSideTransform;
 
         private BaseSideAbilities faceSideAbilities, tailSideAbilities;
@@ -91,11 +93,12 @@ namespace Foxy.Flipside
             if (grounded)
             {
                 Vector3 targetPos = MouseHelper.Instance.TryGetMousePosition();
-                if (targetPos.Equals(Vector3.negativeInfinity)) playerRB.AddForce(transform.up * (side.JumpForce + 2));
+                if (targetPos.Equals(Vector3.negativeInfinity)) playerRB.AddForce(transform.up * 10);
                 else Jump(targetPos);
             }
             StartCoroutine(FlipAnimation());
             side = side.Side == Side.HEAD ? tails : heads;
+            tailCollider.enabled = side.Side != Side.HEAD;
         }
 
         void Jump(Vector3 targetPoint)

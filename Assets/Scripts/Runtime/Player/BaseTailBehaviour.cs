@@ -27,15 +27,16 @@ namespace Foxy.Flipside
         {
             if (playerBehaviour == null) playerBehaviour = BasePlayerBehaviour.Instance;
             if (playerBehaviour != null && playerBehaviour.CurrentSide == Side.TAIL) return;
-           /** Vector3 mousePos = Input.mousePosition;
-            Ray ray = Camera.main.ScreenPointToRay(mousePos);
-            RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-            {
-                //Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, hit.point.z);
-                transform.LookAt(hit.point);
-            }*/
+            /** Vector3 mousePos = Input.mousePosition;
+             Ray ray = Camera.main.ScreenPointToRay(mousePos);
+             RaycastHit hit;
+ 
+             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+             {
+                 //Vector3 lookAt = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+                 transform.LookAt(hit.point);
+             }*/
         }
         
         public void ToggleAbilityActive()
@@ -59,7 +60,7 @@ namespace Foxy.Flipside
         {
             previousRotation = transform.rotation;
             Vector3 lookAt = MouseHelper.Instance.TryGetMousePosition();
-            //if (!lookAt.Equals(Vector3.negativeInfinity)) transform.LookAt(lookAt);
+            // if (!lookAt.Equals(Vector3.negativeInfinity)) transform.LookAt(new Vector3(lookAt.x, transform.position.y, lookAt.z));
             animator.SetTrigger("Attack");
             _abilities = abilities;
         }

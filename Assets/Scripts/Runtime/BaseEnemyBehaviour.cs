@@ -53,17 +53,18 @@ namespace Foxy.Flipside
                 
                 case EnemyState.TARGETING:
                     target = playerTransform.position;
+                    transform.LookAt(target);
                     if (Vector3.Distance(transform.position, playerTransform.position) < 2.0f)
                         currentState = EnemyState.ATTACKING;
                     break;
                 case EnemyState.ATTACKING:
                     target = playerTransform.position;
+                    transform.LookAt(target);
                     break;
                 case EnemyState.IDLE:
                     break;
             }
             
-            transform.LookAt(target);
             direction = (target - transform.position).normalized;
             enemyRb.AddForce(direction * velocity, ForceMode.Acceleration);
         }

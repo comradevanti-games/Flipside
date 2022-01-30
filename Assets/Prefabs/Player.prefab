@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212152436}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.054, y: -0.62, z: 0}
-  m_LocalScale: {x: 0.20515, y: 4.1029997, z: 0.20515}
+  m_LocalPosition: {x: -0.054, y: -0.64, z: 0}
+  m_LocalScale: {x: 0.46105555, y: 9.22111, z: 0.46105555}
   m_Children: []
   m_Father: {fileID: 5582798796929536086}
   m_RootOrder: 2
@@ -5032,6 +5032,7 @@ GameObject:
   - component: {fileID: 346515848}
   - component: {fileID: 346515849}
   - component: {fileID: 5582798796929536083}
+  - component: {fileID: 2357442728776135699}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5175,7 +5176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityActive: 0
   tailBehaviour: {fileID: 212152441}
-  jumpForce: 203.66
+  jumpForce: 100
 --- !u!114 &346515849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5208,4 +5209,19 @@ MonoBehaviour:
   tails: {fileID: 11400000, guid: 576073633e068d24885e49ec556a42ea, type: 2}
   flipDuration: 1.02
   downSideTransform: {x: 0, y: 0, z: 1, w: -0.00000004371139}
+  tailCollider: {fileID: 2357442728776135699}
   grounded: 0
+--- !u!136 &2357442728776135699
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5582798796929536092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.36
+  m_Height: 19.014456
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: -9.704772, z: -0.00000008940697}
