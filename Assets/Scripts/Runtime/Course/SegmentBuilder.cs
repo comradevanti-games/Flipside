@@ -17,8 +17,8 @@ namespace Foxy.Flipside
 
         private void Awake()
         {
-            lastPopTime = firstPopOffset;
             startTime = Time.time;
+            lastPopTime = startTime + firstPopOffset;
         }
 
         public void Build(CourseSegment segment, Rng rng)
@@ -38,7 +38,7 @@ namespace Foxy.Flipside
         }
 
         private float CalculatePopTime(Rng rng) =>
-            lastPopTime + basePopTime * rng.InRange(0.5f, 1.5f) + rng.InRange(-0.5f, 0.5f) + startTime;
+            lastPopTime + basePopTime * rng.InRange(0.5f, 1.5f) + rng.InRange(-0.5f, 0.5f);
 
     }
 
