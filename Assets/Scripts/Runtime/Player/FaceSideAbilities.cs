@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Foxy.Flipside
@@ -13,6 +15,7 @@ namespace Foxy.Flipside
 
         private Vector3 applyGravity;
         private Quaternion vfxRotation;
+        private List<ParticleCollisionEvent> collisionEvents;
         private bool blowing;
 
         // Start is called before the first frame update
@@ -91,7 +94,6 @@ namespace Foxy.Flipside
             blowing = false;
             vfx.Stop();
         }
-
     }
 
 }

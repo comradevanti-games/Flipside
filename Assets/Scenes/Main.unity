@@ -1543,6 +1543,22 @@ PrefabInstance:
       propertyPath: mousePoint
       value: 
       objectReference: {fileID: 668901053}
+    - target: {fileID: 2144794735924577734, guid: 071c3853b846b15448050a475b6766d1, type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2144794735924577734, guid: 071c3853b846b15448050a475b6766d1, type: 3}
+      propertyPath: CollisionModule.colliderForce
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2144794735924577734, guid: 071c3853b846b15448050a475b6766d1, type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2144794735924577734, guid: 071c3853b846b15448050a475b6766d1, type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5140364181890082323, guid: 071c3853b846b15448050a475b6766d1, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
